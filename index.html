@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airplane Ticket Generator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fas fa-ticket-alt me-2"></i> Airplane Ticket Generator</h1>
+    
+    <div class="alert-success" id="successAlert">
+      <i class="fas fa-check-circle me-2"></i> Ticket generated successfully! You can now download your boarding pass.
+    </div>
+    
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h2 class="h5 mb-0"><i class="fas fa-user-edit me-2"></i> Passenger Information</h2>
+      </div>
+      <div class="card-body">
+        <form id="ticketForm">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="passengerName"><i class="fas fa-user me-2"></i> Passenger Name:</label>
+                <input type="text" id="passengerName" class="form-control" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="flightNo"><i class="fas fa-plane me-2"></i> Flight No:</label>
+                <input type="text" id="flightNo" class="form-control" placeholder="IGO 1234" required>
+              </div>
+              <div class="form-group">
+                <label for="from"><i class="fas fa-map-marker-alt me-2"></i> From:</label>
+                <input type="text" id="from" class="form-control" placeholder="DEL" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="to"><i class="fas fa-map-marker-alt me-2"></i> To:</label>
+                <input type="text" id="to" class="form-control" placeholder="BOM" required>
+              </div>
+              <div class="form-group">
+                <label for="date"><i class="fas fa-calendar-alt me-2"></i> Date:</label>
+                <input type="date" id="date" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="time"><i class="fas fa-clock me-2"></i> Time:</label>
+                <input type="time" id="time" class="form-control" required>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="gate"><i class="fas fa-door-open me-2"></i> Gate:</label>
+                <input type="text" id="gate" class="form-control" placeholder="A12" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="seat"><i class="fas fa-chair me-2"></i> Seat:</label>
+                <input type="text" id="seat" class="form-control" placeholder="14B" required>
+              </div>
+            </div>
+          </div>
+          <div class="loading" id="formLoading">
+            <div class="spinner"></div>
+            <p class="mt-2">Generating your ticket...</p>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">
+            <i class="fas fa-ticket-alt me-2"></i> Generate Ticket
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Ticket Preview -->
+    <div class="ticket" id="ticket" style="display: none;">
+      <div class="header">
+        <h1><i class="fas fa-plane-departure me-2"></i> Boarding Pass</h1>
+        <div class="airline-logo">
+          <img src="Indigo-Logo.png" alt="Airline Logo">
+        </div>
+      </div>
+      <div class="details">
+        <div class="row">
+          <div class="col">
+            <p><strong><i class="fas fa-user me-2"></i> Passenger Name:</strong> <span id="ticketPassengerName"></span></p>
+            <p><strong><i class="fas fa-plane me-2"></i> Flight No:</strong> <span id="ticketFlightNo"></span></p>
+            <p><strong><i class="fas fa-map-marker-alt me-2"></i> From:</strong> <span id="ticketFrom"></span></p>
+            <p><strong><i class="fas fa-map-marker-alt me-2"></i> To:</strong> <span id="ticketTo"></span></p>
+          </div>
+          <div class="col">
+            <p><strong><i class="fas fa-calendar-alt me-2"></i> Date:</strong> <span id="ticketDate"></span></p>
+            <p><strong><i class="fas fa-clock me-2"></i> Time:</strong> <span id="ticketTime"></span></p>
+            <p><strong><i class="fas fa-door-open me-2"></i> Gate:</strong> <span id="ticketGate"></span></p>
+            <p><strong><i class="fas fa-chair me-2"></i> Seat:</strong> <span id="ticketSeat"></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="barcode">
+          <img id="ticketBarcode" src="https://barcode.tec-it.com/barcode.ashx?data=BOARDINGPASS&code=Code128&dpi=96" alt="Barcode">
+        </div>
+        <div class="terms">
+          <p><i class="fas fa-info-circle me-2"></i> Please arrive at the gate at least 45 minutes before departure.</p>
+        </div>
+      </div>
+    </div>
+    
+    <button id="downloadBtn" class="btn btn-success" style="display: none;">
+      <i class="fas fa-download me-2"></i> Download Ticket
+    </button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
