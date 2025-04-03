@@ -1,7 +1,8 @@
 # Airplane-Ticket-Generator
 A sleek, responsive web application that generates professional boarding passes in PDF format. Perfect for travel apps, airline systems
 
-![Ticket Generator Screenshot](https://i.imgur.com/JQh6WzL.png)
+![Ticket Generator Screenshot](airplaneDemo.jpg)
+![Ticket Generator Screenshot](airplaneDemo.jpg)
 
 ## 🚀 Features
 
