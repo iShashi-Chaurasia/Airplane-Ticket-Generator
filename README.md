@@ -29,4 +29,4 @@ A sleek, responsive web application that generates professional boarding passes 
 
 ## 🌐 Live Demo
 
-[Try it out here!](https://your-deployed-app-link.com)
+[Try it out here!](https://ishashi-chaurasia.github.io/Airplane-Ticket-Generator/)
